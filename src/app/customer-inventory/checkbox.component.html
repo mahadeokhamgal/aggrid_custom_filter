@@ -1,0 +1,14 @@
+<div class="year-filter" style="height: 120px; width: 140px;">
+    <div>Select Year</div>
+    <!-- <button (click)="filterStatusChange()">{{isFilterActiveBool}}</button> -->   
+    @for (yearOption of getCheckboxesForApi(); track yearOption){
+    <div>
+        <label>
+            <input type="checkbox" [value]="yearOption" [(ngModel)]="selectedYears[yearOption]" (ngModelChange)="updateFilter()" />
+            {{yearOption}}
+        </label>
+    </div>
+    } @empty {
+    Empty yr list
+    }
+</div> 

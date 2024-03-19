@@ -1,0 +1,14 @@
+<div class="year-filter" style="height: 120px; width: 140px;">
+  <div>Select Year</div>
+  <button (click)="filterStatusChange()">{{isFilterActiveBool}}</button>
+  @for (yr of years; track yr){
+  <div>
+    <label>
+      <input type="radio" name="year1" [(ngModel)]="year" (ngModelChange)="updateFilter()" [value]="yr" />
+      {{yr}}
+    </label>
+  </div>
+  } @empty {
+  Empty yr list
+  }
+</div>

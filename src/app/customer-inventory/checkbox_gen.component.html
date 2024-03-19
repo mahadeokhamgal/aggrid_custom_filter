@@ -1,0 +1,48 @@
+<!-- <div class="year-filter" style="height: 120px; width: 140px;">
+    <div>Filter</div>
+      
+    @for (yearOption of values; track yearOption){
+    <div>
+        <label>
+            <input type="checkbox" [value]="yearOption" 
+            [(ngModel)]="selectedValues[yearOption]" (ngModelChange)="updateFilter()" />
+            {{yearOption}}
+        </label>
+    </div>
+    } @empty {
+    Empty yr list
+    }
+</div>  -->
+
+<div class="year-filter" style="height: 50%; width: 150px;">
+<div>{{columnName}} Filter:-</div>
+<div>
+    <label>
+        <input type="checkbox" [(ngModel)]="selectAll"(ngModelChange)="toggleSelectAll()"/>
+        SelectAll
+    </label>
+</div>
+<ng-container>
+    @for (yearOption of values; track yearOption){
+        <div>
+            <label>
+                <input type="checkbox" [value]="yearOption" 
+                [(ngModel)]="selectedValues[yearOption]" />
+                {{yearOption}}
+            </label>
+        </div>
+        } @empty {
+        Empty yr list
+        }
+</ng-container>
+<!-- <ng-template #emptyList>
+    <div>Empty year list</div>
+</ng-template> -->
+<div>
+    Filtered Data Count:-{{getfilteredDataCount()}}/{{values.length}}
+</div>
+<div>
+    <button (click)="applyFilter()">Apply</button>
+    <button (click)="clearFilter()">Clear</button>
+</div>
+</div>
